@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text":"Robbery - States of Australia", "color": "white"},
+    "width": 300,
+    "height": 200,
+    "background": "transparent",
+    "data": {
+      "url": "https://raw.githubusercontent.com/AndrewAi-cmd/FIT3179-Week-10-homework/master/Data/robberystate.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {
+            "labelAngle": 90,
+            "labelColor": "white",
+            "titleColor": "white"
+          }
+      },
+      "y": {
+        "field": "Robbery",
+        "type": "quantitative",
+        "axis": {
+            "labelAngle": 0,
+            "labelColor": "white",
+            "titleColor": "white"
+          }
+      },
+      "color": {"field": "State", "type": "nominal","scale": { "scheme": "redblue", "reverse": false },"legend": {
+        "labelColor": "white",
+        "titleColor": "white"
+      }}
+    }
+  }
+  
