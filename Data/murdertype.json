@@ -18,7 +18,7 @@
     "layer": [{
       "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
     },{
-      "mark": {"type": "text", "radiusOffset": 10},
+      "mark": {"type": "text", "radiusOffset": 20},
       "encoding": {
         "text": {"field": "value", "type": "quantitative"}
       }
