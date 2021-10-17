@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 200,
+    "background": "transparent",
+    "title": {"text": "Robberies in Australia 1993 - 2020", "color": "white"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/AndrewAi-cmd/Week-9-homework/master/Data/Robbery2.csv"
+    },
+    "mark": {
+      "type": "line",
+      "color": "red",
+      "point": true
+    },
+    "encoding": {
+      "x":{
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year",
+        "axis": {
+          "labelAngle": 90,
+          "labelColor": "white",
+          "titleColor": "white"
+        }
+      },
+       "y": {
+         "field": "Robbery",
+         "type": "quantitative",
+         "title": "Robbery",
+         "axis": {
+          "labelAngle": 0,
+          "labelColor": "white",
+          "titleColor": "white"
+        }
+         },
+          "tooltip": [
+            {"field": "Year", "type": "ordinal"},
+            {"field": "Robbery", "type": "quantitative", "format": ","},
+            {"field": "Sassult", "type": "quantitative", "format": ",", "title": "Sexual Assult"}
+          ]
+  
+    }
+  }
+  

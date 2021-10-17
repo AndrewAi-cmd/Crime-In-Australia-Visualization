@@ -1,0 +1,34 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "config": {
+    "view": {
+      "stroke": "transparent"
+    }},
+    "background": "transparent",
+    "description": "Homicides",
+    "data": {
+      "values": [
+        {"category": "Murder", "value": 5992},
+        {"category": "attemped Murder", "value": 5643},
+        {"category": "Manslaughter", "value": 844}
+      ]
+    },
+    "layer": [{
+      "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
+    },{
+      "mark": {"type": "text", "radiusOffset": 20},
+      "encoding": {
+        "text": {"field": "value", "type": "quantitative"}
+      }
+    }],
+    "encoding": {
+      "theta": {"field": "value", "type": "quantitative", "stack": true},
+      "radius": {"field": "value", "scale": {"type": "sqrt", "zero": true, "rangeMin": 90}},
+      "color": {"field": "category", "type": "nominal","legend": {
+        "labelColor": "white",
+        "titleColor": "white"
+      }}
+    }
+  }

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiple Visualisations | An Example</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+<body>
+
+ <div class="page">
+
+   <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1 class = "centre" style=font-size:60px>Crime In Australia</h1>
+        <p class = "centre"></p>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis1" class="vis-container"></div>
+        </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="description description-right">
+          <p class = "centre"> <span id="names">Australia</span>  has the <span id = "stats">63rd</span> highest crime rate Index at <span id = "stats">43.03</span><br> 
+            <span id="names">Venezuela</span> has the <span id = "stats">highest</span> crime rate index at <span id = "stats">83.76</span><br>
+            <span id="names">Qatar</span> is the <span id = "stats">safest</span> Country with a crime index of<span id = "stats">12.13</span>
+          </p>
+        </div>
+      </div>
+  </div>
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis2"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="description description-right">
+            <h2 class = "centre">Robbery</h2>
+            <p class = "centre"><span id = "stats">35%</span> of Robberies occur on a street/footpath <br>
+              <span id = "stats">50%</span> of Robberies involve a weapon <br>
+              <span id="stats">NSW</span> leads in # of robberies followed by <span id="stats">VIC</span> and <span id="stats">QLD</span>
+              </p>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description description-left">
+          <h2 class = "centre">Sexual Assault</h2>
+          <p class = "centre"><span id = "stats">27,505</span> victims of sexual assult recorded in 2020 <br>
+             Increase from <span id = "stats">69</span> victims to <span id = "stats">107</span> victims per 100,000 from 1993 to 2020 <br>
+             <span id="stats">NSW</span> leads in # of Sexual Assault followed by <span id="stats">VIC</span> and <span id="stats">QLD</span>
+
+            </p>
+        </div>
+      </div>
+      <div class="pure-u-2-3">
+        <div id="vis5" class="vis-container"></div>
+      </div>
+  </div>
+  <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="vis3"  class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+        <div id="vis4"  class="vis-container"></div>
+      </div>
+    
+    </div>
+    <!-- end pure grid group -->
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="description description-right">
+          <h2 class = "centre">Homicide</h2>
+          <p class = "centre"> <span id="stats">Murder</span> is the most serious form of homicide, followed by <span id="stats">Attempted Murder</span> and then <span id="stats">Manslaughter</span> <br>
+            Of the <span id="stats">12,479</span> homicide cases in 2020, <span id="stats">Murder</span> and <span id="stats">Attempted Murder</span> has the highest conviction rates
+
+          </p>
+        </div>
+      </div>
+  </div>
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+        <div id="vis6" class="vis-container"></div>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="description description-right">
+          <h2 class = "centre">Corrective Services</h2>
+          <p class = "centre">The Northern Territory leads in terms of imprisonment with almost a rate of 1,000 per 100,000 <br>
+            <span id="stats">15,219</span> prisoners in custody were <span id="stats">unsentenced</span> in 2020 <br>
+            Of all prisoners <span id="stats">92%</span> were male and <span id="stats">8% </span> were female
+
+
+
+          </p>
+        </div>
+      </div>
+  </div>
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+        <div id="vis7"></div>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+
+  
+
+  </div> <!-- end page -->
+   
+<script type="text/javascript">
+  var specVis1 = "Data/choropleth_map.vg.json";
+  var specVis2= "Data/robbery.json";
+  var specVis3 = "Data/robberystate.json";
+  var specVis4= "Data/Sassaultstate.json";
+  var specVis5= "Data/Sassault.json";
+  var specVis6= "Data/murdertype.json";
+  var specVis7= "Data/prison.json";
+
+  vegaEmbed('#vis1', specVis1, {"actions": false});
+  
+   vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis6', specVis6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis7', specVis7, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+</body>
+</html>

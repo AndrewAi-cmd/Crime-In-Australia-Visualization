@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 80,
+      "height": 200,
+      "background": "transparent",
+      "title": {"text":"Imprisonment Rate","color": "white"},
+    "data": { "url": "https://raw.githubusercontent.com/AndrewAi-cmd/FIT3179-Visualization-2/master/Data/prison.csv"},
+  
+    "mark": "bar",
+    "encoding": {
+      "column": {
+        "field": "State", "type": "nominal", "spacing": 10,
+        "header": {"orient": "bottom", "labelColor": "white", "titleColor": "white"}
+          },
+
+      "y": {
+        "aggregate": "sum","field": "imprisonment",
+        "title": "rate per 100,000",
+        "axis": {
+        "labelAngle": 0,
+        "labelColor": "white",
+        "titleColor": "white"
+          }
+      },
+      "x": {
+        "field": "Quarter", 
+        "axis": null
+      },
+      
+      "color": {
+        "field": "Quarter",
+        "scale": {"range": ["#675193", "#ca8861","#ca2261"]},
+        "legend": {
+            "labelColor": "white",
+            "titleColor": "white"
+          }
+
+      },
+      "tooltip": [
+                {"field": "Quarter", "type": "ordinal"},
+                {"field": "imprisonment", "type": "quantitative", "format": ",", "title": "Imprisonment"},
+                {"field": "State", "type": "nominal", "title": "State"}
+              ]
+    },
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {"domainWidth": 1}
+  
+    }
+  }
